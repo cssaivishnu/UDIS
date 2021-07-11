@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+  <article class="media content-section">
+    <div class="media-body">
+      <h2 class="article-title">{{ student.username }}</h2>
+      <p class="article-content">Email:   {{ student.email }}</p>
+      <p class="article-content">Sex:   {{ student.sex }}</p>
+      <p class="article-content">Address:   {{ student.address }}</p>
+      <p class="article-content">Course registered:   {{ student.course_registered }}</p>
+      <p class="article-content">Contact number:   {{ student.contact_number }}</p>  </div>
+  </article>
+{% endblock content %}

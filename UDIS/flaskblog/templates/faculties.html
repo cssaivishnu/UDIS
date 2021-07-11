@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for faculty in faculties %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('users.faculty', faculty_id=faculty.id) }}">{{ faculty.username }}</a>
+              <small class="text-muted">Computer Science and Engineering</small>
+            </div>
+            <p class="article-content">{{ faculty.email }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

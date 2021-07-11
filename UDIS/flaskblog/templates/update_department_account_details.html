@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <h2 class="account-heading">Department Account Details</h2>
+          <p class="text-secondary">Current Deposits:  {{ details.Deposits }}</p>
+          <p class="text-secondary">Current Expenditure:  {{ details.Expenditure }}</p>
+        </div>
+      </div>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Update the info</legend>
+                <div class="form-group">
+                    {{ form.Deposits.label(class="form-control-label") }}
+
+                    {% if form.Deposits.errors %}
+                        {{ form.Deposits(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Deposits.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Deposits(class="form-control ") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.Expenditure.label(class="form-control-label") }}
+
+                    {% if form.Expenditure.errors %}
+                        {{ form.Expenditure(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Expenditure.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Expenditure(class="form-control ") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

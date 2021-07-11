@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if current_user.is_authenticated %}
+<article class="media content-section">
+    <div class="media-body">
+      <h3>Welcome to the University Department Information System IITkgp</h3>
+    </div>
+    <div>
+    <div class="container text-center">
+      <img width=100%;
+  height=auto; alt="Logo" src="/static/profile_pics/kgp2.jpg"  class="logo"/>
+    </div>
+    <br>
+</div>
+</article>
+<h4>Computer Science and Engineering Department, IIT Kharagpur</h4>
+{% else %}
+<article class="media content-section">
+    <div class="media-body">
+      <a class="mr-2" href="{{ url_for('users.register') }}">Register as a student</a>
+    </div>
+</article>
+<article class="media content-section">
+    <div class="media-body">
+      <a class="mr-2" href="{{ url_for('users.register_faculty') }}">Register as a Faculty</a>
+    </div>
+</article>
+<article class="media content-section">
+    <div class="media-body">
+      <a class="mr-2" href="{{ url_for('users.register_admin') }}">Register as a Admin</a>
+    </div>
+</article>
+<div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="{{ url_for('users.login') }}">Sign In</a>
+        </small>
+    </div>
+{% endif %} 
+{% endblock content %}

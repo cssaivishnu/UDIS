@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for detail in details %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('users.change_student_detail', detail_id=detail.id, student_name=name) }}">{{ detail.CourseName }}</a>
+              <small class="text-muted">{{ detail.OfferedCourses}}</small>
+            </div>
+            <p class="article-content">{{ detail.name }}</p>
+            <p class="article-content">{{ detail.CourseDetails }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

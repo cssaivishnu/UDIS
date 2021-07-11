@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for course in courses %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <p>{{ course.name }}</p>
+              <small class="text-muted">Computer Science and Engineering</small>
+            </div>
+            <p class="article-content">{{ course.CourseDetails }}</p>
+            <a class="mr-2" href="{{ url_for('users.register_course', username=name, course_name=course.CourseName) }}">register</a>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

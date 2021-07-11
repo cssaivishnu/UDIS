@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <h2 class="account-heading">{{ course.CourseName }}</h2>
+          <p class="text-secondary">{{ course.name }}</p>
+        </div>
+      </div>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Update Course Details</legend>
+                <div class="form-group">
+                    {{ form.OfferedCourses.label(class="form-control-label") }}
+
+                    {% if form.OfferedCourses.errors %}
+                        {{ form.OfferedCourses(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.OfferedCourses.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.OfferedCourses(class="form-control ") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.CourseName.label(class="form-control-label") }}
+
+                    {% if form.CourseName.errors %}
+                        {{ form.CourseName(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.CourseName.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.CourseName(class="form-control ") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.CourseDetails.label(class="form-control-label") }}
+
+                    {% if form.CourseDetails.errors %}
+                        {{ form.CourseDetails(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.CourseDetails.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.CourseDetails(class="form-control ") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

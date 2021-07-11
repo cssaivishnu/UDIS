@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for student in students %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('users.change_student_grade', name=student.username) }}">{{ student.username }}</a>
+              <small class="text-muted">{{ student.course_registered}}</small>
+            </div>
+            <p class="article-content">{{ student.email }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

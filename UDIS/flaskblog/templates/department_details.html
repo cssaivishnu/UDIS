@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <h3>Department Name:  {{ details.name }}</h3>
+            </div>
+            <p class="article-content">Inventory:  {{ details.Inventory }}</p>
+            <p class="article-content">Ongoing Research Projects:  {{ details.OngoingResearchProjects }}</p>
+            <p class="article-content">Faculty Publication:  {{ details.FacultyPublication }}</p>
+          </div>
+        </article>
+{% endblock content %}

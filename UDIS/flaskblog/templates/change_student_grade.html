@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <h2 class="account-heading">{{ name }}</h2>
+          <p class="text-secondary">Current marks :  {{ details.Marks }}</p>
+          <p class="text-secondary">Current CGPA : {{ details.CGPA }}</p>
+        </div>
+      </div>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Update grade</legend>
+                <div class="form-group">
+                    {{ form.Marks.label(class="form-control-label") }}
+
+                    {% if form.Marks.errors %}
+                        {{ form.Marks(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Marks.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Marks(class="form-control ") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.CGPA.label(class="form-control-label") }}
+
+                    {% if form.CGPA.errors %}
+                        {{ form.CGPA(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.CGPA.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.CGPA(class="form-control ") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
